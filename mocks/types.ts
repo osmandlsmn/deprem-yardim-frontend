@@ -37,6 +37,7 @@ export type Data = {
 export type ClusterPopupData = {
   count: number;
   baseMarker: MarkerData;
+  markers: any[];
 };
 
 export type Raw = {
@@ -69,7 +70,7 @@ export type LocationsResponseResult = {
     neighbourhood?: string;
     street?: string;
     no?: number;
-    name_surname?: any;
+    name_surname?: string;
     tel?: string;
   };
 }[];
@@ -79,4 +80,10 @@ export type CoordinatesURLParameters = {
   ne_lng: number;
   sw_lat: number;
   sw_lng: number;
+};
+
+export type EVENT_TYPES = "moveend" | "zoomend" | "ready";
+
+export type CoordinatesURLParametersWithEventType = CoordinatesURLParameters & {
+  eventType: EVENT_TYPES;
 };
